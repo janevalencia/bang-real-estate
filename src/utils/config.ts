@@ -11,17 +11,79 @@
  *
  */
 
-const SITE_URL = "";
-
 export const config = {
     site: {
-        owner: "project-owner",
-        title: "project-title",
+        owner: "Jane Valencia",
+        title: "방",
     },
-    menuLinks: [
-        {
-            displayName: "",
-            path: "",
-        },
-    ],
+    menuLinks: {
+        header: [
+            {
+                displayName: "HOME",
+                path: "/",
+            },
+            {
+                displayName: "ABOUT",
+                path: "#",
+            },
+            {
+                displayName: "PROJECTS",
+                path: "#",
+            },
+            {
+                displayName: "CONTACT",
+                path: "#",
+            },
+        ],
+        quick_links: [
+            {
+                displayName: "Home",
+                path: "#",
+            },
+            {
+                displayName: "About",
+                path: "#",
+            },
+            {
+                displayName: "Project",
+                path: "#",
+            },
+            {
+                displayName: "Contact",
+                path: "#",
+            },
+        ],
+        legal_links: [
+            {
+                displayName: "Terms",
+                path: "#",
+            },
+            {
+                displayName: "Conditions",
+                path: "#",
+            },
+            {
+                displayName: "Policy",
+                path: "#",
+            },
+        ],
+        social_media: [
+            {
+                displayName: "Facebook",
+                path: "#",
+            },
+            {
+                displayName: "Twitter",
+                path: "#",
+            },
+            {
+                displayName: "YouTube",
+                path: "#",
+            },
+            {
+                displayName: "LinkedIn",
+                path: "#",
+            },
+        ]
+    },
 };
