@@ -1,0 +1,40 @@
+{
+  "name": "next-tailwind-apollo-graphql-contentful-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cypress:gui": "cypress open",
+    "cypress:e2e": "cypress run --e2e --browser chrome"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.9",
+    "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@contentful/rich-text-types": "^16.0.2",
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "contentful": "^9.3.3",
+    "deepmerge": "^4.3.0",
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.3",
+    "graphql": "^16.6.0",
+    "lodash": "^4.17.21",
+    "next": "13.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.5",
+    "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/lodash": "^4.14.191",
+    "autoprefixer": "^10.4.13",
+    "cypress": "^12.7.0",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  }
+}
