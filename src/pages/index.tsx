@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import { getSampleData } from "@/services/sample";
 import { InferGetStaticPropsType } from "next";
 
 export default function Home(
@@ -24,15 +22,6 @@ export default function Home(
                 <h1 className={styles.title} data-cy="welcome-greeting">
                     Hello,
                 </h1>
-                <div>
-                    <Image
-                        src="/next.svg"
-                        alt="Next.js Logo"
-                        width={180}
-                        height={37}
-                        priority
-                    />
-                </div>
             </main>
         </>
     );
