@@ -1,16 +1,16 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "@/layouts/Layout";
-import { Montserrat } from "next/font/google";
+import { Mulish } from "next/font/google";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "@/utils/apollo-client";
 
-// Setup default @next/font to Montserrat.
+// Setup default @next/font to Mulish.
 // https://nextjs.org/docs/basic-features/font-optimization
-const montserrat = Montserrat({
+const mulish = Mulish({
     subsets: ["latin"],
-    style: ["normal", "italic"],
-    weight: ["300", "400", "500", "600", "700"],
+    style: ["normal"],
+    weight: ["300", "400", "700"],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <style jsx global>{`
                 :root {
-                    --font-primary: ${montserrat.style.fontFamily};
+                    --font-primary: ${mulish.style.fontFamily};
                 }
             `}</style>
             <ApolloProvider client={apolloClient}>

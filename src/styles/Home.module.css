@@ -1,12 +1,25 @@
 .main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6rem;
-  gap: 1rem;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-.title {
-  @apply text-4xl font-medium;
+.section {
+  @apply p-[50px] md:p-[100px];
+}
+
+.section_title {
+  @apply font-bold text-xl leading-[57.6px] text-lugar-dark;
+}
+
+.section_description {
+  @apply text-lugar-gray text-lg leading-[21.6px] font-normal mt-[40px];
+}
+
+.section_inner_container {
+  @apply mt-[40px];
+}
+
+.categories {
+  @apply text-lugar-dark text-sm leading-[16.8px] font-normal;
 }

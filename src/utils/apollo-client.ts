@@ -12,13 +12,8 @@ import isEqual from "lodash/isEqual";
 
 // Environment variables to Contentful space.
 const SPACE_ID = process.env.CONTENTFUL_SPACE_ID;
-const TOKEN =
-    process.env.NODE_ENV !== "production"
-        ? process.env.CONTENTFUL_DEV_ACCESS_TOKEN_PUBLISHED
-        : process.env.CONTENTFUL_PROD_ACCESS_TOKEN_PUBLISHED;
-const ENVIRONMENT =
-    process.env.NODE_ENV !== "production" ? "development" : "master";
-const GRAPHQL_URL = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/environments/${ENVIRONMENT}`;
+const TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN_CDA;
+const GRAPHQL_URL = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}`;
 
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 
@@ -55,7 +50,12 @@ function createApolloClient() {
     });
 }
 
-// Initialize Apollo Client.
+/**
+ * Initialize Apollo Client.
+ * It merges the initial state (data passed in from getStaticProps() 
+ * or getServerSideProps()) with the existing client-side Apollo cache, 
+ * then sets that new, merged data set as the new cache for Apollo Client.
+ */
 export function initializeApollo(initialState: any = null) {
     const _apolloClient = apolloClient ?? createApolloClient();
 
@@ -88,16 +88,36 @@ export function initializeApollo(initialState: any = null) {
     return _apolloClient;
 }
 
-// Add Apollo State to pageProps, so we can use it in getStaticProps (SSG) / getServerSideProps (SSR).
+/**
+ * Takes the pageProps returned from getStaticProps/getServerSideProps for
+ * the current page and adds them to Apollo Client's cache.
+ * Next.js will then take care of passing the Apollo's cache data, along
+ * with any other page-specific props into the page component 
+ * (i.e. revalidate ISR).
+ * 
+ * @param client 
+ * @param pageProps 
+ * @returns pageProps with Apollo state.
+ */
 export function addApolloState(
     client: ApolloClientType,
-    pageProps: { props: any }
+    pageProps: any
 ) {
-    pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract();
-    return pageProps;
+    if (pageProps?.props) {
+        pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract()
+    }
+
+    return pageProps
 }
 
-// Return Apollo store from pageProps so we can use it inside our components.
+/**
+ * Calls initialiseApollo() to get an instance of Apollo Client with cache data.
+ * Then, the Apollo Client is passed to the ApolloProvider.
+ * From this, we can use Apollo Client for CLIENT-SIDE data fetching.
+ * 
+ * @param pageProps 
+ * @returns apolloState
+ */
 export function useApollo(pageProps: any) {
     const state = pageProps[APOLLO_STATE_PROP_NAME];
     const store = useMemo(() => initializeApollo(state), [state]);
