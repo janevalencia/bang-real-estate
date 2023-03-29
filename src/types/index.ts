@@ -28,10 +28,12 @@ export type TSiteMeta = {
 // Content Model: Site Navigation.
 export type TSiteNav = {
     id: string;
+    orderNumber: number;
     displayName: string;
     pageReference: {
         slug: string;
     };
-    position: string[];
     category: string;
+    displayInHeader: boolean;
+    displayInFooter: boolean;
 }

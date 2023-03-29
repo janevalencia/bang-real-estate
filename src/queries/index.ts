@@ -3,15 +3,19 @@ import { gql } from "@apollo/client";
 // Query all menu items.
 export const ALL_MENUS_QUERY = gql`
     query GetMenus {
-        headerNavbarCollection {
+        headerNavbarCollection (
+          order: orderNumber_ASC, 
+          where: {OR:[{displayInHeader: true}, {displayInFooter: true}]} ) {
             items {
                 id
+                orderNumber
                 displayName
-                position
                 category
                 pageReference {
                     slug
                 }
+                displayInHeader
+                displayInFooter
             }
         }
     }

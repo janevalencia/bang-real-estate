@@ -28,7 +28,7 @@ const Footer = ({ author, year }: FooterProps) => {
     const footerMenus: TSiteNav[] = useMemo(() => {
         const menus: TSiteNav[] = data.headerNavbarCollection.items;
         // Filter data to get only footer menus.
-        return menus.filter((menu) => menu.position.includes("Footer"));
+        return menus.filter((menu) => menu.displayInFooter === true);
     }, [data]);
 
     return (

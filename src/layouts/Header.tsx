@@ -16,7 +16,7 @@ const Header = () => {
     const headerMenus : TSiteNav[] = useMemo(() => {
         const menus : TSiteNav[] = data.headerNavbarCollection.items;
         // Filter data to get only header menus.
-        return menus.filter((menu) => menu.position.includes("Header"));
+        return menus.filter((menu) => menu.displayInHeader === true);
     }, [data])
 
     // Mobile navigation state.
