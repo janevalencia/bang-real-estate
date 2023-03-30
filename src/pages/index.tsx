@@ -77,7 +77,8 @@ export default function Home() {
                     <div>
                         <h2 className={styles.section_title}>Properties</h2>
                         <p className={styles.section_description}>
-                            Properties developed with true love and care, guaranteed with highest craftmanship.
+                            Properties developed with true love and care,
+                            guaranteed with highest craftmanship.
                         </p>
                     </div>
 
@@ -101,27 +102,30 @@ export default function Home() {
                 {/* Award Winning Section */}
                 <section className={styles.section}>
                     <div className="flex flex-col-reverse items-start gap-4 lg:flex-row lg:justify-between lg:items-center">
-                        <Image
-                            src="/bang-award-image.png"
-                            alt="Award Wining Image"
-                            width={445}
-                            height={500}
-                        />
-                        <div className="lg:ml-[125px]">
+                        <div className="min-w-[445px] h-full">
+                            <Image
+                                className="object-cover"
+                                src="/bang-award-image.png"
+                                alt="Award Wining Image"
+                                width={445}
+                                height={500}
+                            />
+                        </div>
+                        <div className="lg:pl-10">
                             <h2 className={styles.section_title}>
                                 Award winning real estate company based in South
                                 Korea
                             </h2>
                             <p className={styles.section_description}>
                                 Lorem Ipsum is simply dummy text of the printing
-                                and typesetting industry. It has survived not only five centuries,
-                                but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was
-                                popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages,
-                                and more recently with desktop publishing
-                                software like Aldus PageMaker including versions
-                                of Lorem Ipsum.
+                                and typesetting industry. It has survived not
+                                only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially
+                                unchanged. It was popularised in the 1960s with
+                                the release of Letraset sheets containing Lorem
+                                Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker
+                                including versions of Lorem Ipsum.
                             </p>
                             <div className="flex flex-row gap-10">
                                 <div className={styles.section_inner_container}>
