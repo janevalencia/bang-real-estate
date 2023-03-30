@@ -1,12 +1,11 @@
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
 }
 
 .section {
-  @apply max-w-[1440px] px-[50px] py-14;
+  @apply max-w-[1440px] mx-[50px] md:mx-[100px] py-14;
 }
 
 .section_title {

@@ -38,7 +38,7 @@ const GridProperties = ({ posts }: GridPropertiesProps) => {
 
     return (
         <section>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
                 {showPosts &&
                     showPosts.map((post) => (
                         <PropertyCard key={post.slug} post={post} />
