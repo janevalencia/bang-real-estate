@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
@@ -8,6 +9,8 @@ import { TProperty } from "@/types";
 import { GridProperties, Filter, Button, ErrorMessage } from "@/components";
 
 export default function Home() {
+    const router = useRouter();
+
     // Fetch server side data for properties from Apollo Client.
     const { data, loading, error } = useQuery(HOME_PAGE_QUERY);
     const [properties, setProperties] = useState<TProperty[]>(
@@ -29,6 +32,11 @@ export default function Home() {
 
         return properties;
     }, [activeFilter, properties]);
+
+    // Handle CTA buttons.
+    const redirectCta = (path: string) => {
+        router.push(path);
+    }
 
     if (error) return <ErrorMessage message={error.message} />;
     if (loading) return <div>Loading...</div>;
@@ -66,14 +74,14 @@ export default function Home() {
                             Real estate farm that makes your dreams true
                         </p>
                         <div className="flex flex-row gap-14 mt-4">
-                            <Button text="Our projects" isDark={true} />
-                            <Button text="Contact us" isDark={false} />
+                            <a href="#properties"><Button text="Our projects" isDark={true} /></a>
+                            <Button text="Contact us" isDark={false} onClick={() => redirectCta("/contact")} />
                         </div>
                     </div>
                 </section>
 
                 {/* Properties Section */}
-                <section className="section">
+                <section className="section" id="properties">
                     {/* Header */}
                     <div>
                         <h2 className="section_title">Properties</h2>
