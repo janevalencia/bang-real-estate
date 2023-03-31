@@ -45,7 +45,7 @@ export default function Home() {
                     content="width=device-width, initial-scale=1"
                 />
             </Head>
-            <main className={styles.main}>
+            <main>
                 {/* Hero */}
                 <section className="w-screen min-h-[100vh] relative">
                     <div className="absolute top-0 bg-lugar-blue w-full h-full -z-10">
@@ -72,11 +72,11 @@ export default function Home() {
                 </section>
 
                 {/* Properties Section */}
-                <section className={styles.section}>
+                <section className="section">
                     {/* Header */}
                     <div>
-                        <h2 className={styles.section_title}>Properties</h2>
-                        <p className={styles.section_description}>
+                        <h2 className="section_title">Properties</h2>
+                        <p className="section_description">
                             Properties developed with true love and care,
                             guaranteed with highest craftmanship.
                         </p>
@@ -100,7 +100,7 @@ export default function Home() {
                 </section>
 
                 {/* Award Winning Section */}
-                <section className={styles.section}>
+                <section className="section">
                     <div className="flex flex-col-reverse items-start gap-4 lg:flex-row lg:justify-between lg:items-center">
                         <div className="min-w-[445px] h-full">
                             <Image
@@ -112,11 +112,11 @@ export default function Home() {
                             />
                         </div>
                         <div className="lg:pl-10">
-                            <h2 className={styles.section_title}>
+                            <h2 className="section_title">
                                 Award winning real estate company based in South
                                 Korea
                             </h2>
-                            <p className={styles.section_description}>
+                            <p className="section_description">
                                 Lorem Ipsum is simply dummy text of the printing
                                 and typesetting industry. It has survived not
                                 only five centuries, but also the leap into

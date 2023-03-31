@@ -39,20 +39,20 @@ const Footer = ({ author, year }: FooterProps) => {
                     <div className="py-4">
                         <div className="text-lugar-gray flex flex-row justify-start items-center gap-2">
                             <BiMap size={15} />
-                            <p className="font-normal text-sm">
+                            <p className="font-normal text-sm text-lugar-white">
                                 83-21 Wangsimni-ro, Seongdong-gu, Seoul, South
                                 Korea
                             </p>
                         </div>
                         <div className="text-lugar-gray flex flex-row justify-start items-center gap-2">
                             <IoIosCall size={15} />
-                            <p className="font-normal text-sm">
+                            <p className="font-normal text-sm text-lugar-white">
                                 +82 2-6240-9800
                             </p>
                         </div>
                         <div className="text-lugar-gray flex flex-row justify-start items-center gap-2">
                             <AiOutlineMail size={15} />
-                            <p className="font-normal text-sm underline">
+                            <p className="font-normal text-sm underline text-lugar-white">
                                 contact@bang.co.kr
                             </p>
                         </div>

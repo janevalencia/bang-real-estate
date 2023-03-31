@@ -18,5 +18,27 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold;
+  @apply font-bold text-lugar-dark;
+}
+
+p {
+  @apply text-lugar-dark;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section {
+  @apply max-w-[1440px] mx-[50px] md:mx-[100px] py-14;
+}
+
+.section_title {
+  @apply font-bold text-xl leading-[57.6px] text-lugar-dark;
+}
+
+.section_description {
+  @apply text-lugar-gray text-lg leading-[21.6px] font-normal mt-[40px];
 }
