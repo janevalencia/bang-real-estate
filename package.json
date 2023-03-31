@@ -34,7 +34,6 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.14.191",
     "autoprefixer": "^10.4.13",
-    "cypress": "^12.7.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
   }
