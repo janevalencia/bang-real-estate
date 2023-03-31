@@ -33,7 +33,9 @@ const Footer = ({ author, year }: FooterProps) => {
         <footer className="w-full bg-lugar-dark py-14 px-[50px] md:px-[100px]">
             <div className="flex flex-col md:flex-row justify-between">
                 <div>
-                    <h3 className="text-lg text-lugar-white">방 | South Korea Real Estate Champion</h3>
+                    <h3 className="text-lg text-lugar-white">
+                        방 | South Korea Real Estate Champion
+                    </h3>
                     <div className="py-4">
                         <div className="text-lugar-gray flex flex-row justify-start items-center gap-2">
                             <BiMap size={15} />
@@ -71,7 +73,7 @@ const Footer = ({ author, year }: FooterProps) => {
                                         key={nav.id}
                                         className=" text-lugar-gray font-normal text-sm"
                                     >
-                                        <Link href={`#`}>
+                                        <Link href={nav.pageReference.slug}>
                                             {nav.displayName}
                                         </Link>
                                     </li>
@@ -92,7 +94,7 @@ const Footer = ({ author, year }: FooterProps) => {
                                         key={nav.id}
                                         className=" text-lugar-gray font-normal text-sm"
                                     >
-                                        <Link href={`#`}>
+                                        <Link href={nav.pageReference.slug}>
                                             {nav.displayName}
                                         </Link>
                                     </li>
@@ -104,7 +106,11 @@ const Footer = ({ author, year }: FooterProps) => {
                             SOCIAL MEDIA
                         </h3>
                         <ul className="flex flex-col gap-2 mt-3">
-                            <li>TBA</li>
+                            <li>
+                                <Link href="#">
+                                    TBA
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

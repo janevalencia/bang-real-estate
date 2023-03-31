@@ -10,12 +10,12 @@ import { ErrorMessage } from "@/components";
 const Header = () => {
     // Fetch menu data for Header from Apollo Client cache.
     const { data, loading, error } = useQuery(GET_HEADER_MENUS);
-    
+
     // Memoised the header menus, until data in query changes.
-    const headerMenus : TSiteNav[] = useMemo(() => {
+    const headerMenus: TSiteNav[] = useMemo(() => {
         const menus: TSiteNav[] = data?.headerNavbarCollection.items;
         return menus;
-    }, [data])
+    }, [data]);
 
     // Mobile navigation state.
     const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
@@ -38,14 +38,20 @@ const Header = () => {
                                 key={nav.id}
                                 className=" text-lugar-dark font-normal text-sm"
                             >
-                                <Link href={`#`}>{nav.displayName.toUpperCase()}</Link>
+                                <Link href={nav.pageReference.slug}>
+                                    {nav.displayName.toUpperCase()}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
                 {/* Mobile toggle */}
-                <button className="md:hidden" hidden={showMobileNav} onClick={toggleNav}>
+                <button
+                    className="md:hidden"
+                    hidden={showMobileNav}
+                    onClick={toggleNav}
+                >
                     <CiMenuBurger size={20} />
                 </button>
                 <button
@@ -66,7 +72,7 @@ const Header = () => {
                                     key={nav.id}
                                     className=" text-lugar-dark font-normal text-sm"
                                 >
-                                    <Link href={`#`}>
+                                    <Link href={nav.pageReference.slug}>
                                         {nav.displayName.toUpperCase()}
                                     </Link>
                                 </li>
