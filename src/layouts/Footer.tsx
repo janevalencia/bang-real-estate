@@ -5,7 +5,8 @@ import { IoIosCall } from "react-icons/io";
 import { AiOutlineMail } from "react-icons/ai";
 import { useQuery } from "@apollo/client";
 import { GET_FOOTER_MENUS } from "@/queries";
-import { TSiteNav } from "@/types";
+import { TSiteNav, TSocial } from "@/types";
+import { ErrorMessage } from "@/components";
 
 // Default Footer props.
 const defaultFooterProps = {
@@ -21,13 +22,22 @@ type FooterProps = {
 
 const Footer = ({ author, year }: FooterProps) => {
     // Fetch menu data for Header from Apollo Client cache.
-    const { data } = useQuery(GET_FOOTER_MENUS);
+    const { data, loading, error } = useQuery(GET_FOOTER_MENUS);
 
-    // Filter fetched result and define header menus.
+    // Memoised the footer menus.
     const footerMenus: TSiteNav[] = useMemo(() => {
         const menus: TSiteNav[] = data?.headerNavbarCollection.items;
         return menus;
     }, [data]);
+
+    // Memoised the social accounts.
+    const socialAccounts: TSocial[] = useMemo(() => {
+        const accounts: TSocial[] = data?.socialMediaCollection.items;
+        return accounts;
+    }, [data]);
+
+    if (error) return <ErrorMessage message={error.message} />;
+    if (loading) return null;
 
     return (
         <footer className="w-full bg-lugar-dark py-14 px-[50px] md:px-[100px]">
@@ -106,11 +116,21 @@ const Footer = ({ author, year }: FooterProps) => {
                             SOCIAL MEDIA
                         </h3>
                         <ul className="flex flex-col gap-2 mt-3">
-                            <li>
-                                <Link href="#">
-                                    TBA
-                                </Link>
-                            </li>
+                            {socialAccounts.map((social) => (
+                                <li
+                                    key={social.id}
+                                    className="text-lugar-gray font-normal text-sm"
+                                >
+                                    {/* With external link, we don't need next/link */}
+                                    <a
+                                        href={social.url}
+                                        rel="noopener noreferrer"
+                                        target="_blank"
+                                    >
+                                        {social.displayName}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

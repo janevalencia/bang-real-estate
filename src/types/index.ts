@@ -37,3 +37,10 @@ export type TSiteNav = {
     displayInHeader: boolean;
     displayInFooter: boolean;
 }
+
+// Content Model: Social Media
+export type TSocial = {
+    id: string;
+    displayName: string;
+    url: string;
+}

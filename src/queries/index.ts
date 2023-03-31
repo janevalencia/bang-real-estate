@@ -39,6 +39,13 @@ export const GET_FOOTER_MENUS = gql`
                 displayInFooter
             }
         }
+        socialMediaCollection {
+            items {
+                id
+                displayName
+                url
+            }
+        }
     }
 `
 
