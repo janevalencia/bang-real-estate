@@ -1,22 +1,20 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { GrClose } from "react-icons/gr";
 import { useQuery } from "@apollo/client";
-import { ALL_MENUS_QUERY } from "@/queries";
+import { GET_HEADER_MENUS } from "@/queries";
 import { TSiteNav } from "@/types";
+import { ErrorMessage } from "@/components";
 
 const Header = () => {
-
     // Fetch menu data for Header from Apollo Client cache.
-    const { data } = useQuery(ALL_MENUS_QUERY);
+    const { data, loading, error } = useQuery(GET_HEADER_MENUS);
     
-    // Filter fetched result and define header menus.
+    // Memoised the header menus, until data in query changes.
     const headerMenus : TSiteNav[] = useMemo(() => {
-        const menus : TSiteNav[] = data.headerNavbarCollection.items;
-        // Filter data to get only header menus.
-        return menus.filter((menu) => menu.displayInHeader === true);
+        const menus: TSiteNav[] = data?.headerNavbarCollection.items;
+        return menus;
     }, [data])
 
     // Mobile navigation state.
@@ -24,6 +22,9 @@ const Header = () => {
     const toggleNav = () => {
         setShowMobileNav((prev) => !prev);
     };
+
+    if (error) return <ErrorMessage message={error.message} />;
+    if (loading) return null;
 
     return (
         <header className="py-14 px-[50px] md:px-[100px] bg-lugar-blue w-screen">

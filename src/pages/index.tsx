@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.css";
 import { useMemo, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
-import { ALL_MENUS_QUERY, ALL_PROPERTIES_QUERY } from "@/queries";
+import { ALL_PROPERTIES_QUERY, GET_HEADER_MENUS, GET_FOOTER_MENUS } from "@/queries";
 import { TProperty } from "@/types";
 import { GridProperties, Filter, Button, ErrorMessage } from "@/components";
 
@@ -173,7 +173,11 @@ export async function getStaticProps() {
 
     // Fetch menus data.
     await apolloClient.query({
-        query: ALL_MENUS_QUERY,
+        query: GET_HEADER_MENUS,
+    });
+
+    await apolloClient.query({
+        query: GET_FOOTER_MENUS,
     });
 
     return addApolloState(apolloClient, {

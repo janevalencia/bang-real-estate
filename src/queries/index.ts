@@ -1,11 +1,32 @@
 import { gql } from "@apollo/client";
 
-// Query all menu items.
-export const ALL_MENUS_QUERY = gql`
-    query GetMenus {
+// Query Header menu items.
+export const GET_HEADER_MENUS = gql`
+    query GetHeaderMenus {
         headerNavbarCollection (
           order: orderNumber_ASC, 
-          where: {OR:[{displayInHeader: true}, {displayInFooter: true}]} ) {
+          where: {displayInHeader: true} ) {
+            items {
+                id
+                orderNumber
+                displayName
+                category
+                pageReference {
+                    slug
+                }
+                displayInHeader
+                displayInFooter
+            }
+        }
+    }
+`
+
+// Query Footer menu items.
+export const GET_FOOTER_MENUS = gql`
+    query GetFooterMenus {
+        headerNavbarCollection (
+          order: orderNumber_ASC, 
+          where: {displayInFooter: true} ) {
             items {
                 id
                 orderNumber
@@ -42,17 +63,4 @@ export const ALL_PROPERTIES_QUERY = gql`
     }
 `
 
-// Query all pages.
-export const ALL_PAGES_QUERY = gql`
-    query GetPages {
-        pageCollection {
-            items {
-                slug
-                pageTitle
-                subtitle
-                seoTitle
-                seoDescription
-            }
-        }
-    }
-`
+// Query page template.

@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
 import { BiMap } from "react-icons/bi";
 import { IoIosCall } from "react-icons/io";
 import { AiOutlineMail } from "react-icons/ai";
 import { useQuery } from "@apollo/client";
-import { ALL_MENUS_QUERY } from "@/queries";
+import { GET_FOOTER_MENUS } from "@/queries";
 import { TSiteNav } from "@/types";
 
 // Default Footer props.
@@ -22,13 +21,12 @@ type FooterProps = {
 
 const Footer = ({ author, year }: FooterProps) => {
     // Fetch menu data for Header from Apollo Client cache.
-    const { data } = useQuery(ALL_MENUS_QUERY);
+    const { data } = useQuery(GET_FOOTER_MENUS);
 
     // Filter fetched result and define header menus.
     const footerMenus: TSiteNav[] = useMemo(() => {
-        const menus: TSiteNav[] = data.headerNavbarCollection.items;
-        // Filter data to get only footer menus.
-        return menus.filter((menu) => menu.displayInFooter === true);
+        const menus: TSiteNav[] = data?.headerNavbarCollection.items;
+        return menus;
     }, [data]);
 
     return (
