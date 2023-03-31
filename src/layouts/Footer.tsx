@@ -46,7 +46,7 @@ const Footer = ({ author, year }: FooterProps) => {
                     <h3 className="text-lg text-lugar-white">
                         방 | South Korea Real Estate Champion
                     </h3>
-                    <div className="py-4">
+                    <div className="py-3">
                         <div className="text-lugar-gray flex flex-row justify-start items-center gap-2">
                             <BiMap size={15} />
                             <p className="font-normal text-sm text-lugar-white">
@@ -68,7 +68,7 @@ const Footer = ({ author, year }: FooterProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col lg:flex-row gap-14">
+                <div className="flex flex-col gap-3 lg:flex-row lg:gap-12">
                     <div>
                         <h3 className="font-bold text-lg text-lugar-white">
                             QUICK LINKS

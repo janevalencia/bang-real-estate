@@ -1,4 +1,7 @@
 # Nextjs, TailwindCSS, Typescript, GraphQL/Apollo Client
+
+![Preview](./design/preview.png)
+
 ## Technology
 
 - Next >= 13
@@ -9,14 +12,12 @@
 - @next/font plugin (default = Montserrat)
 - Apollo-Client >= 3.7.9
 - GraphQL >= 16.6.0
-- Contentful (fill in .env file as per your credentials)
-  - @contentful/rich-text-react-renderer
-  - @contentful/rich-text-types
 - deepmerge
 - lodash
   - @types/lodash
 - react-markdown
-- Cypress (e2e, component testing)
+- Contentful (Headless CMS)
+- Netlify Form
 
 ## Install
 
@@ -55,3 +56,5 @@ Going headless or CLI:
 ```
 yarn cypress:e2e
 ```
+## Content Modeling Diagram
+TBA
