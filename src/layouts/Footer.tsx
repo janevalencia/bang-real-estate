@@ -44,7 +44,7 @@ const Footer = ({ author, year }: FooterProps) => {
             <div className="flex flex-col md:flex-row justify-between">
                 <div>
                     <h3 className="text-lg text-lugar-white">
-                        방 | South Korea Real Estate Champion
+                        방 | South Korea&apos;s Real Estate Champion
                     </h3>
                     <div className="py-3">
                         <div className="text-lugar-gray flex flex-row justify-start items-center gap-2">
