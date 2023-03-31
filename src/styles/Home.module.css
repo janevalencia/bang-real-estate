@@ -1,7 +1,3 @@
-.section_description {
-  @apply text-lugar-gray text-lg leading-[21.6px] font-normal mt-[40px];
-}
-
 .section_inner_container {
   @apply mt-[40px];
 }

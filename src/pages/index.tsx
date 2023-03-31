@@ -4,14 +4,16 @@ import styles from "@/styles/Home.module.css";
 import { useMemo, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
-import { ALL_PROPERTIES_QUERY, GET_HEADER_MENUS, GET_FOOTER_MENUS } from "@/queries";
+import { GET_HEADER_MENUS, GET_FOOTER_MENUS, HOME_PAGE_QUERY } from "@/queries";
 import { TProperty } from "@/types";
 import { GridProperties, Filter, Button, ErrorMessage } from "@/components";
 
 export default function Home() {
     // Fetch server side data for properties from Apollo Client.
-    const { data, loading, error } = useQuery(ALL_PROPERTIES_QUERY);
-    const properties: TProperty[] = data.propertyCollection.items;
+    const { data, loading, error } = useQuery(HOME_PAGE_QUERY);
+    const [properties, setProperties] = useState<TProperty[]>(
+        data.propertyCollection.items
+    );
 
     // Define state of active categories filter.
     const [activeFilter, setActiveFilter] = useState<string>("");
@@ -35,10 +37,10 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>방 | Real Estate Champion</title>
+                <title>{data.page.seoTitle}</title>
                 <meta
                     name="description"
-                    content="방 where you find the bang-est property in South Korea."
+                    content={data.page.seoDescription}
                 />
                 <meta
                     name="viewport"
@@ -166,9 +168,9 @@ export default function Home() {
 export async function getStaticProps() {
     const apolloClient = initializeApollo();
 
-    // Fetch property posts data.
+    // Fetch data specific to homepage.
     await apolloClient.query({
-        query: ALL_PROPERTIES_QUERY,
+        query: HOME_PAGE_QUERY,
     });
 
     // Fetch menus data.

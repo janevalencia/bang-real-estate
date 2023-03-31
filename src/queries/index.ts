@@ -42,9 +42,14 @@ export const GET_FOOTER_MENUS = gql`
     }
 `
 
-// Query all properties.
-export const ALL_PROPERTIES_QUERY = gql`
-    query GetProperties {
+// Query page template.
+export const HOME_PAGE_QUERY = gql`
+    query GetHomePage {
+        page(id: "4FYAIS99mg6ZE1TBBAovC5") {
+            slug
+            seoTitle
+            seoDescription
+        }
         propertyCollection {
             items {
                 slug
@@ -63,4 +68,26 @@ export const ALL_PROPERTIES_QUERY = gql`
     }
 `
 
-// Query page template.
+export const ABOUT_PAGE_QUERY = gql`
+    query GetAboutPage {
+        page(id: "6FzlcGQKEjL3uUy8mcswx5") {
+            slug
+            pageTitle
+            subtitle
+            seoTitle
+            seoDescription
+        }
+    }
+`
+
+export const CONTACT_PAGE_QUERY = gql`
+    query GetContactPage {
+        page(id: "6OnNWVTmoq0l9L2gFoKsh0") {
+            slug
+            pageTitle
+            subtitle
+            seoTitle
+            seoDescription
+        }
+    }
+`

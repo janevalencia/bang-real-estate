@@ -1,14 +1,23 @@
+import Head from "next/head";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
-import {
-    GET_HEADER_MENUS,
-    GET_FOOTER_MENUS,
-} from "@/queries";
+import { GET_HEADER_MENUS, GET_FOOTER_MENUS } from "@/queries";
 
 export default function Custom404() {
     return (
-        <main className="justify-center items-center">
-            <h1 className="text-xl text-lugar-dark">404 - Page Not Found</h1>
-        </main>
+        <>
+            <Head>
+                <title>Page Not Found</title>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+            </Head>
+            <main className="justify-center items-center">
+                <h1 className="text-xl text-lugar-dark">
+                    404 - Page Not Found
+                </h1>
+            </main>
+        </>
     );
 }
 
