@@ -91,3 +91,39 @@ export const CONTACT_PAGE_QUERY = gql`
         }
     }
 `
+
+export const TERMS_PAGE_QUERY = gql`
+    query GetTermsPage {
+        page(id: "7M5SzyFQSsGlfPVEqAksar") {
+            slug
+            pageTitle
+            subtitle
+            seoTitle
+            seoDescription
+        }
+    }
+`
+
+export const CONDITIONS_PAGE_QUERY = gql`
+    query GetConditionsPage {
+        page(id: "2XAgzjZoRB8DKk9npYybqo") {
+            slug
+            pageTitle
+            subtitle
+            seoTitle
+            seoDescription
+        }
+    }
+`
+
+export const POLICY_PAGE_QUERY = gql`
+    query GetPolicyPage {
+        page(id: "2W0ufViRGKd73maqOAFJIm") {
+            slug
+            pageTitle
+            subtitle
+            seoTitle
+            seoDescription
+        }
+    }
+`

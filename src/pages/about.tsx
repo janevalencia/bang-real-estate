@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "@/styles/About.module.css";
 import { useQuery } from "@apollo/client";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
 import {
@@ -26,7 +25,7 @@ const About = () => {
                     content="width=device-width, initial-scale=1"
                 />
             </Head>
-            <main className={styles.main}>
+            <main>
                 <section className="section">
                     <div className="text-center">
                         <h1 className="font-bold text-xl md:text-2xl leading-[108px]">
@@ -67,7 +66,7 @@ const About = () => {
                         </p>
                     </div>
                     <div className="flex flex-row gap-10">
-                        <div className={styles.section_inner_container}>
+                        <div className="section_inner_container">
                             <h3 className="font-bold text-sm leading-[16.8px] text-lugar-blue">
                                 Previous projects
                             </h3>
@@ -75,7 +74,7 @@ const About = () => {
                                 20+
                             </p>
                         </div>
-                        <div className={styles.section_inner_container}>
+                        <div className="section_inner_container">
                             <h3 className="font-bold text-sm leading-[16.8px] text-lugar-blue">
                                 Years experience
                             </h3>
@@ -83,7 +82,7 @@ const About = () => {
                                 10y
                             </p>
                         </div>
-                        <div className={styles.section_inner_container}>
+                        <div className="section_inner_container">
                             <h3 className="font-bold text-sm leading-[16.8px] text-lugar-blue">
                                 Ongoing projects
                             </h3>

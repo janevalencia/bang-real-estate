@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 import { useMemo, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
@@ -130,7 +129,7 @@ export default function Home() {
                                 including versions of Lorem Ipsum.
                             </p>
                             <div className="flex flex-row gap-10">
-                                <div className={styles.section_inner_container}>
+                                <div className="section_inner_container">
                                     <h3 className="font-bold text-sm leading-[16.8px] text-lugar-blue">
                                         Previous projects
                                     </h3>
@@ -138,7 +137,7 @@ export default function Home() {
                                         20+
                                     </p>
                                 </div>
-                                <div className={styles.section_inner_container}>
+                                <div className="section_inner_container">
                                     <h3 className="font-bold text-sm leading-[16.8px] text-lugar-blue">
                                         Years experience
                                     </h3>
@@ -146,7 +145,7 @@ export default function Home() {
                                         10y
                                     </p>
                                 </div>
-                                <div className={styles.section_inner_container}>
+                                <div className="section_inner_container">
                                     <h3 className="font-bold text-sm leading-[16.8px] text-lugar-blue">
                                         Ongoing projects
                                     </h3>

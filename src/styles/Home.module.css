@@ -1,7 +1,0 @@
-.section_inner_container {
-  @apply mt-[40px];
-}
-
-.categories {
-  @apply text-lugar-dark text-sm leading-[16.8px] font-normal;
-}
