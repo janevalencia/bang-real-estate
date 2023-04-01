@@ -56,7 +56,7 @@ export default function Home() {
             </Head>
             <main>
                 {/* Hero */}
-                <section className="w-screen min-h-[100vh] relative">
+                <section className="w-screen min-h-[30vh] lg:min-h-[100vh] relative">
                     <div className="absolute top-0 bg-lugar-blue w-full h-full -z-10">
                         <Image
                             className="object-cover w-full h-full"
@@ -111,7 +111,7 @@ export default function Home() {
                 {/* Award Winning Section */}
                 <section className="section">
                     <div className="flex flex-col-reverse items-start gap-4 lg:flex-row lg:justify-between lg:items-center">
-                        <div className="min-w-[445px] h-full">
+                        <div className="md:min-w-[445px] h-full">
                             <Image
                                 className="object-cover"
                                 src="/bang-award-image.png"

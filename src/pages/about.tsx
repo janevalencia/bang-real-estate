@@ -42,6 +42,7 @@ const About = () => {
                             alt="Bang's team"
                             width={500}
                             height={300}
+                            priority={true}
                         />
                         <p className="text-justify pt-6">
                             Contrary to popular belief, Lorem Ipsum is not
