@@ -9,35 +9,40 @@ import {
 } from "@/queries";
 import { ErrorMessage } from "@/components";
 
-interface FormPost {
-    fullName?: string;
-    email?: string;
-    queryType?: string;
-    message?: string;
-}
+// interface FormPost {
+//     fullName?: string;
+//     email?: string;
+//     "queryType[]"?: string;
+//     message?: string;
+// }
 
 const Contact = () => {
     const { data, loading, error } = useQuery(CONTACT_PAGE_QUERY);
 
-    const [state, setState] = useState<FormPost>();
+    // const [state, setState] = useState<FormPost>();
     const [submitted, setSubmitted] = useState(false);
 
-    const encode = (data: any) => {
-        return Object.keys(data)
-            .map(
-                (key) =>
-                    encodeURIComponent(key) +
-                    "=" +
-                    encodeURIComponent(data[key])
-            )
-            .join("&");
-    };
+    // const encode = (data: any) => {
+    //     return Object.keys(data)
+    //         .map(
+    //             (key) =>
+    //                 encodeURIComponent(key) +
+    //                 "=" +
+    //                 encodeURIComponent(data[key])
+    //         )
+    //         .join("&");
+    // };
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+        const myForm = event.currentTarget;
+        const formData = new FormData(myForm);
+
+
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...state }),
+            body: new URLSearchParams(formData as any).toString(),
         })
             .then(() => console.log("Success!"))
             .catch((error) => console.log(error));
@@ -46,12 +51,12 @@ const Contact = () => {
         setSubmitted(true);
     };
 
-    const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        setState({
-            ...state,
-            [e.currentTarget.id]: e.currentTarget.value,
-        });
-    };
+    // const handleChange = (e: React.FormEvent<any>) => {
+    //     setState({
+    //         ...state,
+    //         [e.currentTarget.id]: e.currentTarget.value,
+    //     });
+    // };
 
     if (error) return <ErrorMessage message={error.message} />;
     if (loading) return <div>Loading...</div>;
@@ -80,6 +85,7 @@ const Contact = () => {
                         <form
                             name="contact"
                             method="POST"
+                            action=""
                             data-netlify="true"
                             onSubmit={onSubmit}
                         >
@@ -100,7 +106,6 @@ const Contact = () => {
                                             name="fullName"
                                             placeholder="Enter your full name"
                                             className="border border-lugar-gray rounded-md p-2 mt-2 text-sm lg:text-base"
-                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
@@ -114,7 +119,6 @@ const Contact = () => {
                                             name="email"
                                             placeholder="Enter your email address"
                                             className="border border-lugar-gray rounded-md p-2 mt-2 text-sm lg:text-base"
-                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
@@ -124,12 +128,11 @@ const Contact = () => {
                                         </label>
                                         <select
                                             id="queryType"
-                                            name="queryType"
+                                            name="queryType[]"
                                             className="border border-lugar-gray rounded-md p-2 mt-2 text-sm lg:text-base"
-                                            onChange={handleChange}
                                             required
                                         >
-                                            <option value="General" defaultChecked={true} >
+                                            <option value="General" >
                                                 General inquiries
                                             </option>
                                             <option value="Sell">
@@ -152,7 +155,6 @@ const Contact = () => {
                                             placeholder="Tell us how we can help you"
                                             className="border border-lugar-gray rounded-md p-2 mt-2 text-sm lg:text-base"
                                             rows={15}
-                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
