@@ -1,14 +1,12 @@
 {
-  "name": "next-tailwind-apollo-graphql-contentful-template",
+  "name": "bang-real-estate-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "cypress:gui": "cypress open",
-    "cypress:e2e": "cypress run --e2e --browser chrome"
+    "lint": "next lint"
   },
   "dependencies": {
     "@apollo/client": "^3.7.9",
