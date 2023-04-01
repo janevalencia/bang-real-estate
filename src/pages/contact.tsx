@@ -46,14 +46,7 @@ const Contact = () => {
         setSubmitted(true);
     };
 
-    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-        setState({
-            ...state,
-            [e.currentTarget.id]: e.currentTarget.value,
-        });
-    };
-
-    const handleSelect = (e: React.FormEvent<HTMLSelectElement>) => {
+    const handleChange = (e: React.FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setState({
             ...state,
             [e.currentTarget.id]: e.currentTarget.value,
@@ -133,10 +126,10 @@ const Contact = () => {
                                             id="queryType"
                                             name="queryType"
                                             className="border border-lugar-gray rounded-md p-2 mt-2 text-sm lg:text-base"
-                                            onChange={handleSelect}
+                                            onChange={handleChange}
                                             required
                                         >
-                                            <option value="General">
+                                            <option value="General" defaultChecked={true} >
                                                 General inquiries
                                             </option>
                                             <option value="Sell">
@@ -159,6 +152,7 @@ const Contact = () => {
                                             placeholder="Tell us how we can help you"
                                             className="border border-lugar-gray rounded-md p-2 mt-2 text-sm lg:text-base"
                                             rows={15}
+                                            onChange={handleChange}
                                             required
                                         />
                                     </div>
