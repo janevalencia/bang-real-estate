@@ -40,7 +40,7 @@ const About = () => {
                             className="object-cover w-full h-[300px]"
                             src="/bang-about-us.jpg"
                             alt="Bang's team"
-                            width={1440}
+                            width={500}
                             height={300}
                         />
                         <p className="text-justify pt-6">

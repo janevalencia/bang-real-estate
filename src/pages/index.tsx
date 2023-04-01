@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import { initializeApollo, addApolloState } from "@/utils/apollo-client";
 import { GET_HEADER_MENUS, GET_FOOTER_MENUS, HOME_PAGE_QUERY } from "@/queries";
 import { TProperty } from "@/types";
-import { GridProperties, Filter, Button, ErrorMessage } from "@/components";
+import { GridProperties, Filter, Button, ErrorMessage, AnchorButton } from "@/components";
 
 export default function Home() {
     const router = useRouter();
@@ -74,7 +74,7 @@ export default function Home() {
                             Real estate farm that makes your dreams true
                         </p>
                         <div className="flex flex-row gap-14 mt-4">
-                            <a href="#properties"><Button text="Our projects" isDark={true} /></a>
+                            <AnchorButton href="#properties" text="Our projects" isDark={true} />
                             <Button text="Contact us" isDark={false} onClick={() => redirectCta("/contact")} />
                         </div>
                     </div>
