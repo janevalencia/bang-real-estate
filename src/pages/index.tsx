@@ -64,6 +64,8 @@ export default function Home() {
                             alt="Bang Hero Background"
                             width={872}
                             height={800}
+                            placeholder="blur"
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcf+VRPQAHhQLmpo+/DQAAAABJRU5ErkJggg=="
                         />
                     </div>
                     <div className="px-[50px] pb-[50px] md:px-[100px] md:pb-[100px] max-w-[635px]">
@@ -118,6 +120,8 @@ export default function Home() {
                                 alt="Award Wining Image"
                                 width={445}
                                 height={500}
+                                placeholder="blur"
+                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcf+VRPQAHhQLmpo+/DQAAAABJRU5ErkJggg=="    
                             />
                         </div>
                         <div className="lg:pl-10">

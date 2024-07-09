@@ -42,7 +42,8 @@ const About = () => {
                             alt="Bang's team"
                             width={500}
                             height={300}
-                            priority={true}
+                            placeholder="blur"
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcf+VRPQAHhQLmpo+/DQAAAABJRU5ErkJggg=="
                         />
                         <p className="text-justify pt-6">
                             Contrary to popular belief, Lorem Ipsum is not

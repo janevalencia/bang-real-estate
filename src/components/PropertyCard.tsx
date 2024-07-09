@@ -15,6 +15,8 @@ const PropertyCard = ({ post }: PropertyCardProps) => {
                 alt={`${post.title} image`}
                 width={350}
                 height={350}
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcf+VRPQAHhQLmpo+/DQAAAABJRU5ErkJggg=="
             />
             <div className="absolute bottom-0 left-[50%] ml-[-128px] p-5 bg-lugar-white max-w-[256px] shadow-lugar">
                 <h3 className="text-lugar-dark text-sm leading-[16.8px] font-bold">
